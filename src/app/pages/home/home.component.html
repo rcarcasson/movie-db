@@ -1,0 +1,11 @@
+<section>
+    <h1>Últimas en cartelera</h1>
+    <p>Películas que se han estrenado y que pueden estar o no en cartelera</p>
+    <app-now-playing-carrousel *ngIf="!loading"
+        [nowPlayingInfo]="nowPlayingInfo"></app-now-playing-carrousel>
+    <hr class="border border-danger border-2 opacity-50">
+    <h1>Películas populares</h1>
+    <p>Las películas más populares</p>
+    <app-movie-cards *ngIf="!loading"
+        [movies]="popularMovies"></app-movie-cards>
+</section>

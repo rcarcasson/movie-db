@@ -1,0 +1,40 @@
+<div class="container py-4 py-xl-5" *ngIf="!loading">
+    <div class="row gy-4 gy-md-0">
+        <div class="col-md-6">
+            <div class="p-xl-5 m-xl-5 hvr-grow"><img class="rounded img-fluid w-100 fit-cover" style="min-height: 300px;" [src]="imageUrl + detail.backdrop_path" /></div>
+        </div>
+        <div class="col-md-6 d-md-flex align-items-md-center">
+            <div style="max-width: 350px;">
+                <h2 class="text-uppercase fw-bold">{{ detail.title }}</h2>
+                <p class="card-text h6 fw-lighter">{{ detail.release_date | date:'dd MMM YYYY' }}</p>
+                <span class="badge rounded-pill me-2 text-bg-info" *ngFor="let genres of detail.genres">{{ genres.name }}</span>
+            </div>
+        </div>
+    </div>
+</div>
+<section *ngIf="!loading">
+    <p>{{ detail.overview }}</p>
+    <h3>Productoras</h3>
+    <span class="badge rounded-pill me-2 text-bg-primary" *ngFor="let prod_company of detail.production_companies">{{ prod_company.name }}</span>
+    <hr class="border border-danger border-2 opacity-50">
+    <h3>Presupuesto</h3>
+    <p>{{ detail.budget | currency }}</p>
+    <hr class="border border-danger border-2 opacity-50">
+    <h3>Ganancias</h3>
+    <p>{{ detail.revenue | currency }}</p>
+    <hr class="border border-danger border-2 opacity-50">
+    <h3>Elenco</h3>
+    <div class="container">
+        <div class="row gy-5">
+            <div class="col-md-3" *ngFor="let cast of detail.credits.cast">
+                <div class="card">
+                    <img [src]="cast.profile_path | setImage" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ cast.character }}</h4>
+                        <h6 class="text-muted card-subtitle mb-2">{{ cast.name }}</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

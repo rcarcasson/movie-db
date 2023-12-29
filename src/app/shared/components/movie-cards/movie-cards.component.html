@@ -1,0 +1,12 @@
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" *ngFor="let movie of movieInfo" (click)="goDetails(movie.id)">
+      <div class="card h-100 hvr-grow">
+        <img [src]="imageUrl + movie.poster_path" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{ movie.title }}</h5>
+          <p class="card-text h6 fw-lighter">{{ movie.release_date | date:'dd MMM YYYY' }}</p>
+          <span class="badge rounded-pill me-2 text-bg-info" *ngFor="let genre of movie.genre_ids">{{ genre | genreTransform }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
