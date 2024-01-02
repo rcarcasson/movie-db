@@ -1,5 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { NowPlayingInfo, PopularInfo } from 'src/app/shared/interfaces/movie.interface';
+import { FooterProvider } from 'src/app/shared/providers/footer.provider';
 import { GenresProvider } from 'src/app/shared/providers/genres.provider';
 import { MovieServices } from 'src/app/shared/services/movie-services.service';
 
@@ -15,10 +16,12 @@ export class HomeComponent implements OnInit {
 
   private movieServices = inject(MovieServices);
   private genresProvider = inject(GenresProvider);
+  private footerProvider = inject(FooterProvider);
 
   constructor() { }
 
   ngOnInit(): void {
+    this.footerProvider.showFooter();
     this.loading = true;
     this.loadGenres();
     this.loadData();

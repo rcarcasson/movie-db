@@ -5,6 +5,7 @@ import { FooterComponent } from './footer/footer.component';
 import { NowPlayingCarrouselComponent } from './now-playing-carrousel/now-playing-carrousel.component';
 import { MovieCardsComponent } from './movie-cards/movie-cards.component';
 import { GenreTransformPipe } from '../pipes/genre-transform.pipe';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { GenreTransformPipe } from '../pipes/genre-transform.pipe';
     GenreTransformPipe,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule,
   ],
   exports: [
     NavbarComponent,

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ComponentsModule } from './shared/components/components.module';
 import { HttpClientModule } from '@angular/common/http';
 import { PagesModule } from './pages/pages.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { register } from 'swiper/element/bundle';
 import { registerLocaleData } from '@angular/common';
@@ -23,6 +24,7 @@ registerLocaleData(localeEsCL, 'es-CL');
     ComponentsModule,
     PagesModule,
     AppRoutingModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'es-CL'}
